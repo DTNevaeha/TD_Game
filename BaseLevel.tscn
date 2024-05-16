@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5cxdew1fk03r"]
+[gd_scene load_steps=10 format=3 uid="uid://c5cxdew1fk03r"]
 
+[ext_resource type="PackedScene" uid="uid://ycolhmqqt3pv" path="res://RayPickerCamera/ray_picker_camera.tscn" id="1_kc06i"]
 [ext_resource type="MeshLibrary" uid="uid://ckkxjo3ix7p35" path="res://MeshLibraries/SpaceLibraries.tres" id="1_q0ql3"]
 [ext_resource type="PackedScene" uid="uid://b8nhsajj7xnnv" path="res://Enemy/enemy.tscn" id="2_ay0h6"]
 [ext_resource type="PackedScene" uid="uid://d0kibjiwk3lrp" path="res://Base/base.tscn" id="3_qgggh"]
@@ -36,8 +37,7 @@ environment = SubResource("Environment_02to2")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 17.5, 9.5)
+[node name="RayPickerCamera" parent="." instance=ExtResource("1_kc06i")]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
