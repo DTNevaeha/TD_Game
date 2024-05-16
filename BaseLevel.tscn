@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5cxdew1fk03r"]
+[gd_scene load_steps=9 format=3 uid="uid://c5cxdew1fk03r"]
 
 [ext_resource type="MeshLibrary" uid="uid://ckkxjo3ix7p35" path="res://MeshLibraries/SpaceLibraries.tres" id="1_q0ql3"]
 [ext_resource type="PackedScene" uid="uid://b8nhsajj7xnnv" path="res://Enemy/enemy.tscn" id="2_ay0h6"]
+[ext_resource type="PackedScene" uid="uid://d0kibjiwk3lrp" path="res://Base/base.tscn" id="3_qgggh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w541m"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -95,3 +96,6 @@ path_joined = false
 
 [node name="Enemy" parent="Path3D" instance=ExtResource("2_ay0h6")]
 transform = Transform3D(0.999995, 0, 0, 0, 1, 0, 0, 0, 0.999995, -14, 0, 14)
+
+[node name="Base" parent="." instance=ExtResource("3_qgggh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -7)
