@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://c5cxdew1fk03r"]
+[gd_scene load_steps=12 format=3 uid="uid://c5cxdew1fk03r"]
 
 [ext_resource type="PackedScene" uid="uid://ycolhmqqt3pv" path="res://RayPickerCamera/ray_picker_camera.tscn" id="1_kc06i"]
 [ext_resource type="MeshLibrary" uid="uid://ckkxjo3ix7p35" path="res://MeshLibraries/SpaceLibraries.tres" id="1_q0ql3"]
 [ext_resource type="PackedScene" uid="uid://b8nhsajj7xnnv" path="res://Enemy/enemy.tscn" id="2_ay0h6"]
 [ext_resource type="PackedScene" uid="uid://d0kibjiwk3lrp" path="res://Base/base.tscn" id="3_qgggh"]
+[ext_resource type="Script" path="res://TurretManager.gd" id="5_3if2y"]
+[ext_resource type="PackedScene" uid="uid://c1j6xn8dx5df5" path="res://Turret/turret.tscn" id="6_2dxod"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w541m"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -116,3 +118,7 @@ progress = 20.0
 
 [node name="Base" parent="." instance=ExtResource("3_qgggh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -7)
+
+[node name="TurretManager" type="Node3D" parent="."]
+script = ExtResource("5_3if2y")
+turret = ExtResource("6_2dxod")
