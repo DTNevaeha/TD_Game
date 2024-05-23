@@ -4,9 +4,12 @@ extends PathFollow3D
 @export var speed: float = 2.5
 
 @onready var base = get_tree().get_first_node_in_group("base")
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var current_health: int:
 	set(health_in):
+		if health_in < current_health:
+			animation_player.play("TakeDamage")
 		current_health = health_in
 		if current_health < 1:
 			queue_free()
