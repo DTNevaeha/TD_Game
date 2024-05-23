@@ -119,7 +119,7 @@ script = ExtResource("5_3if2y")
 turret = ExtResource("6_2dxod")
 enemy_path = NodePath("../EnemyPath")
 
-[node name="Bank" type="MarginContainer" parent="."]
+[node name="Bank" type="MarginContainer" parent="." groups=["bank"]]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -136,7 +136,7 @@ script = ExtResource("8_qitl0")
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
-text = "placeholder text"
+text = "placeholder"
 label_settings = SubResource("LabelSettings_8l6ne")
 
 [connection signal="timeout" from="EnemyPath/Timer" to="EnemyPath" method="spawn_enemy"]
