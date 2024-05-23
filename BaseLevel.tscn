@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c5cxdew1fk03r"]
+[gd_scene load_steps=16 format=3 uid="uid://c5cxdew1fk03r"]
 
 [ext_resource type="PackedScene" uid="uid://ycolhmqqt3pv" path="res://RayPickerCamera/ray_picker_camera.tscn" id="1_kc06i"]
 [ext_resource type="MeshLibrary" uid="uid://ckkxjo3ix7p35" path="res://MeshLibraries/SpaceLibraries.tres" id="1_q0ql3"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://TurretManager.gd" id="5_3if2y"]
 [ext_resource type="PackedScene" uid="uid://c1j6xn8dx5df5" path="res://Turret/turret.tscn" id="6_2dxod"]
 [ext_resource type="Script" path="res://Bank.gd" id="8_qitl0"]
+[ext_resource type="PackedScene" uid="uid://ca7ekomi684hf" path="res://DifficultyManager/difficulty_manager.tscn" id="9_k1yby"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w541m"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -63,10 +64,11 @@ data = {
 "cells": PackedInt32Array(65535, 65534, 0, 65531, 65535, 0, 4, 65535, 0, 4, 2, 0, 65531, 65534, 0, 65531, 0, 0, 65531, 1, 0, 65531, 2, 0, 65532, 65534, 0, 65533, 65534, 0, 65533, 2, 0, 65534, 65534, 0, 65534, 2, 0, 0, 65534, 0, 2, 65534, 0, 3, 65534, 0, 3, 2, 0, 4, 65534, 0, 4, 0, 0, 4, 1, 0, 65532, 65535, 0, 65533, 65535, 0, 65534, 65535, 0, 65535, 65535, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 65534, 1, 0, 65533, 1, 0, 3, 1, 0, 3, 0, 0, 3, 65535, 0, 2, 65535, 0)
 }
 
-[node name="EnemyPath" type="Path3D" parent="."]
+[node name="EnemyPath" type="Path3D" parent="." node_paths=PackedStringArray("difficulty_manager")]
 curve = SubResource("Curve3D_6htl5")
 script = ExtResource("3_wwv14")
 enemy_scene = ExtResource("2_ay0h6")
+difficulty_manager = NodePath("../DifficultyManager")
 
 [node name="Road" type="CSGPolygon3D" parent="EnemyPath"]
 polygon = PackedVector2Array(-1, 0.1, -1, 0.1, 1, 0.1, 1, 0)
@@ -138,5 +140,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 text = "placeholder"
 label_settings = SubResource("LabelSettings_8l6ne")
+
+[node name="DifficultyManager" parent="." instance=ExtResource("9_k1yby")]
 
 [connection signal="timeout" from="EnemyPath/Timer" to="EnemyPath" method="spawn_enemy"]
