@@ -2,7 +2,7 @@ extends Camera3D
 
 @export var gridmap: GridMap
 @export var turret_manager: Node3D
-@export var turret_cost := 10
+@export var turret_cost := 100
 
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
 @onready var bank = get_tree().get_first_node_in_group("bank")

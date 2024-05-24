@@ -1,18 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c1j6xn8dx5df5"]
+[gd_scene load_steps=8 format=3 uid="uid://c1j6xn8dx5df5"]
 
 [ext_resource type="Script" path="res://Turret/turret.gd" id="1_o5uq5"]
 [ext_resource type="PackedScene" uid="uid://dgc36bgrllmkk" path="res://Turret/projectile.tscn" id="1_uql6f"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_dhoyf"]
-height = 1.0
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_5oaj0"]
-top_radius = 0.6
-bottom_radius = 0.6
-height = 0.6
-
-[sub_resource type="BoxMesh" id="BoxMesh_iu4n4"]
-size = Vector3(0.2, 0.2, 0.5)
+[ext_resource type="PackedScene" uid="uid://b7ndx2sgfmju0" path="res://Assets/Cannon.glb" id="3_20y1j"]
+[ext_resource type="PackedScene" uid="uid://dq3jjixh3vsoe" path="res://Assets/TurretBase.glb" id="4_ha2hb"]
 
 [sub_resource type="Animation" id="Animation_qi6ku"]
 length = 0.001
@@ -55,17 +46,14 @@ _data = {
 script = ExtResource("1_o5uq5")
 projectile = ExtResource("1_uql6f")
 
-[node name="TurretBase" type="MeshInstance3D" parent="."]
+[node name="TurretBase" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-mesh = SubResource("CylinderMesh_dhoyf")
 
-[node name="TurretTop" type="MeshInstance3D" parent="TurretBase"]
+[node name="TurretTop" type="Node3D" parent="TurretBase"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
-mesh = SubResource("CylinderMesh_5oaj0")
 
-[node name="TurretGun" type="MeshInstance3D" parent="TurretBase"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0.695)
-mesh = SubResource("BoxMesh_iu4n4")
+[node name="Cannon" parent="TurretBase/TurretTop" instance=ExtResource("3_20y1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
@@ -74,5 +62,7 @@ autostart = true
 libraries = {
 "": SubResource("AnimationLibrary_yebcv")
 }
+
+[node name="TurretBase2" parent="." instance=ExtResource("4_ha2hb")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
