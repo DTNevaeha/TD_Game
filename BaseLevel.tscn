@@ -121,7 +121,6 @@ autostart = true
 
 [node name="Base" parent="." instance=ExtResource("3_qgggh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -7)
-max_health = 50
 
 [node name="TurretManager" type="Node3D" parent="." node_paths=PackedStringArray("enemy_path")]
 script = ExtResource("5_3if2y")
@@ -149,6 +148,7 @@ text = "placeholder"
 label_settings = SubResource("LabelSettings_8l6ne")
 
 [node name="DifficultyManager" parent="." instance=ExtResource("9_k1yby")]
+game_length = 180.0
 
 [node name="VictoryLayer" parent="." instance=ExtResource("10_bjqr5")]
 visible = false

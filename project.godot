@@ -15,6 +15,10 @@ run/main_scene="res://BaseLevel.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [input]
 
 click={
@@ -26,3 +30,4 @@ click={
 [rendering]
 
 renderer/rendering_method="mobile"
+anti_aliasing/quality/msaa_3d=2
