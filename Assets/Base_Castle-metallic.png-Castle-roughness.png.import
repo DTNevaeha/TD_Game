@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt4wo82lfsry0"
+uid="uid://dkidckf5i471x"
 path.s3tc="res://.godot/imported/Base_Castle-metallic.png-Castle-roughness.png-2e84e7ed52b9c734cc837e34008035a8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "a489590a67931906beb2e2d411765924"
 }
 
 [deps]
